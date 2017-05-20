@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ItemSpec List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<table>
+		<tr>
+			<th>Item</th>
+			<th>Unit Price</th>
+			<th>Special Price</th>
+		</tr>
+
+		<tr th:each="item:${items}">
+			<form action="/itemspec/update" method="post">
+				<td><input type="text" name="" th:value="${item.name}"
+					disabled="disabled" size="4"></input></td>
+				<td><input type="text" name="price"
+					th:value="${item.unitPrice}" size="4"></input></td>
+				<td><input type="text" name="unit"
+					th:value="${item.unitForSpecialPrice}" size="4"></input> for <input
+					type="text" name="specialPrice" th:value="${item.specialPrice}"
+					size="4"></input></td> <input type="hidden" name="name"
+					th:value="${item.name}"></input>
+				<td><input type="submit" value="Update"></input></td>
+			</form>
+		</tr>
+
+	</table>
+</body>
+</html>

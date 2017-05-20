@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Checkout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<p><a href="/itemspec">Change Item Price</a></p>
+
+	<table>
+		<tr>
+			<th>Item</th>
+			<th>Unit Price</th>
+			<th>Special Price</th>
+		</tr>
+
+		<tr th:each="item:${items}">
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.unitPrice}"></td>
+			<td th:text="${item.unitForSpecialPrice} + ' for ' + ${item.specialPrice}"></td>
+			<td><form action="/checkout/update" method="post">
+			<input type="hidden" name="name" th:value="${item.name}"></input>
+			<input type="submit" value="Add"></input></form></td>
+		</tr>
+
+	</table>
+	
+	<p><form action="/checkout/delete" method="post"><input type="submit" value="Empty Basket"></input></form></p>
+	<h2>Shopping Basket</h2>
+	<span th:each="item:${basket.items}"><span th:text="${item}"></span></span>
+	
+	<p th:text="'Price : ' + ${basket.totalPrice}"></p>
+	
+</body>
+</html>

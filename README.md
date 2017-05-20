@@ -11,6 +11,15 @@ To Build
 
 To Run
 ---------
+Still in the project's root folder, and run -
+>java -jar ./target/checkout-kata-1.0-SNAPSHOT.jar
         
 To Test
 ---------
+Open a Browser, and open url -
+
+* http://localhost:8080/
+
+To Shutdown
+-----------
+press - ctrl + c

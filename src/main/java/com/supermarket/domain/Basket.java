@@ -2,6 +2,7 @@ package com.supermarket.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Basket {
 	
@@ -29,4 +30,15 @@ public class Basket {
 		this.items.clear();
 		this.totalPrice = 0;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("items [");
+		sb.append(items.stream().collect(Collectors.joining(",")));
+		sb.append("], totalPrice [");
+		sb.append(this.totalPrice + "]");
+		return sb.toString();
+	}
+	
+	
 }

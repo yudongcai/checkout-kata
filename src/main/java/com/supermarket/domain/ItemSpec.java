@@ -60,4 +60,14 @@ public class ItemSpec {
 	public int hashCode() {
 		return this.name.hashCode();
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("ItemSpec [");
+		sb.append("name:" + name + ", unitPrice:" + unitPrice);
+		sb.append(", " + this.unitForSpecialPrice + " for " + this.specialPrice + "]");
+		return sb.toString();
+	}
+	
+	
 }

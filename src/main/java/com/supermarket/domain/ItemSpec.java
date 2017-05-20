@@ -2,6 +2,10 @@ package com.supermarket.domain;
 
 public class ItemSpec {
 	
+	//need this if persist to a database 
+	//private Long id;
+	
+	//just use this as primary key for now
 	private String name;
 	
 	private double unitPrice;

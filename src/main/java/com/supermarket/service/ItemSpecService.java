@@ -8,9 +8,9 @@ public interface ItemSpecService {
 	
 	ItemSpec getItemSpecByName(String name);
 	
-	void create(ItemSpec itemSpec);
+	ItemSpec create(ItemSpec itemSpec);
 	
-	void update(ItemSpec itemSpec);
+	ItemSpec update(ItemSpec itemSpec);
 	
 	void delete(String name);
 	

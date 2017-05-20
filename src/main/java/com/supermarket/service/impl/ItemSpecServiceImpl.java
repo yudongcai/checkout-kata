@@ -1,5 +1,6 @@
 package com.supermarket.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,31 +22,37 @@ public class ItemSpecServiceImpl implements ItemSpecService {
 	}
 
 	@Override
-	public void create(ItemSpec itemSpec) {
+	public ItemSpec create(ItemSpec itemSpec) {
 		final String name = itemSpec.getName();
 		if (this.nameToItemSpecMap.get(name) != null) {
 			throw new RuntimeException("Oops, ItemSpec already exists - " + name);
 		}
 		
 		this.nameToItemSpecMap.put(name, itemSpec);
+		return this.nameToItemSpecMap.get(name);
 	}
 
 	@Override
-	public void update(ItemSpec itemSpec) {
-		// TODO Auto-generated method stub
-
+	public ItemSpec update(ItemSpec itemSpec) {
+		final String name = itemSpec.getName();
+		if (this.nameToItemSpecMap.get(name) == null) {
+			throw new RuntimeException("Oops, ItemSpec does not exist - " + name);
+		}
+		
+		this.nameToItemSpecMap.put(name, itemSpec);
+		return this.nameToItemSpecMap.get(name);
 	}
 
 	@Override
 	public void delete(String name) {
-		// TODO Auto-generated method stub
-
+		if (this.nameToItemSpecMap.get(name) != null) {
+			this.nameToItemSpecMap.remove(name);
+		}
 	}
 
 	@Override
 	public List<ItemSpec> list() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<ItemSpec>(this.nameToItemSpecMap.values());
 	}
 
 }
